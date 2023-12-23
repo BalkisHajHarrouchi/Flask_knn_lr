@@ -1,0 +1,37 @@
+<!-- templates/index2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSTM Model Deployment</title>
+</head>
+<body>
+    <h1>LSTM Model Deployment</h1>
+
+    <!-- Formulaire pour la prédiction LSTM -->
+    <form method="post" action="/predict_lstm">
+        <label for="High">High:</label>
+        <input type="text" name="High" required>
+        <label for="Low">Low:</label>
+        <input type="text" name="Low" required>
+        <label for="Open_Price">Open Price:</label>
+        <input type="text" name="Open_Price" required>
+        <label for="Adj_Close">Adj Close:</label>
+        <input type="text" name="Adj_Close" required>
+        <label for="Volume">Volume:</label>
+        <input type="text" name="Volume" required>
+        <button type="submit">Predict LSTM</button>
+    </form>
+
+    <!-- Affiche la prédiction LSTM si disponible -->
+    {% if prediction %}
+        <p>Prediction LSTM: {{ prediction }}</p>
+    {% endif %}
+
+    <!-- Affiche une erreur si elle se produit -->
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% endif %}
+</body>
+</html>
